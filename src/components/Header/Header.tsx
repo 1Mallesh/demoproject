@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Navbar, Container, Nav, NavDropdown, Form, Button } from 'react-bootstrap';
-
+// import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -17,7 +17,7 @@ export default function Header() {
           <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: 'auto' }} navbarScroll>
             {/* Navigation Links */}
             <Nav.Link as={Link} href="/">Home</Nav.Link>
-            <Nav.Link as={Link} href="/about">About</Nav.Link>
+            <Nav.Link as={Link} href="/about-us">About</Nav.Link>
             <Nav.Link as={Link} href="/features">Features</Nav.Link>
             <Nav.Link as={Link} href="/retreat">Retreat</Nav.Link>
             <Nav.Link as={Link} href="/product">Product</Nav.Link>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-function invister() {
+const Banner = () => {
   return (
     <div>
-      <h1>nm</h1>
+      banner
     </div>
   )
 }
 
-export default invister
+export default Banner;
