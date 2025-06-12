@@ -24,7 +24,7 @@ function index() {
         <div>
             <h1>Contact Page</h1>
             <p>This is the contact page where you can reach us.</p>
-<p>Check the console for fetched data.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+<p>Check the console for fetched data.</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         </div>
     )
 }
