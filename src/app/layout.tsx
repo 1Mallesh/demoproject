@@ -1,5 +1,6 @@
 import "../app/globals.css"; // Optional if you have global styles
 import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata = {
   title: "My App",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Header />  
         <main style={{ flex: 1 }}>{children}</main>
+        <Footer />
       </body>
     </html>
   );

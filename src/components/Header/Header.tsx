@@ -6,6 +6,7 @@ import { Navbar, Container, Nav, NavDropdown, Form, Button } from 'react-bootstr
 // import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Header() {
   return (
+    <div className='fixed-top mb-5'>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         {/* Navbar brand */}
@@ -19,13 +20,13 @@ export default function Header() {
             <Nav.Link as={Link} href="/">Home</Nav.Link>
             <Nav.Link as={Link} href="/about-us">About</Nav.Link>
             <Nav.Link as={Link} href="/features">Features</Nav.Link>
-            <Nav.Link as={Link} href="/retreat">Retreat</Nav.Link>
-            <Nav.Link as={Link} href="/product">Product</Nav.Link>
+            <Nav.Link as={Link} href="/Services">Services</Nav.Link>
+            <Nav.Link as={Link} href="/Projects">Projects</Nav.Link>
             <Nav.Link as={Link} href="/contact">Contact Us</Nav.Link>
-             <Nav.Link as={Link} href="/blogPost">Blog-detailes</Nav.Link>
-            <Nav.Link as={Link} href="/Careers">Careers</Nav.Link>
-            <Nav.Link as={Link} href="/Investors">Investors</Nav.Link>
-            <Nav.Link as={Link} href="/serives">Services</Nav.Link>
+             {/* <Nav.Link as={Link} href="/Projects">Projects</Nav.Link> */}
+            <Nav.Link as={Link} href="/Experience">Experience</Nav.Link>
+            {/* <Nav.Link as={Link} href="/Investors">Investors</Nav.Link> */}
+            <Nav.Link as={Link} href="/services">Services</Nav.Link>
             {/* Dropdown */}  
             <NavDropdown title="Select" id="navbarScrollingDropdown">
               <NavDropdown.Item as={Link} href="/action1">Action</NavDropdown.Item>
@@ -46,5 +47,6 @@ export default function Header() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
 }

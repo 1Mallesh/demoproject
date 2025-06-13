@@ -14,7 +14,8 @@ function Tab() {
 
   // useMemo: Expensive calculation only recalculates when 'numbers' changes
   const evenNumbers = useMemo(() => {
-    console.log("Calculating even numbers...");
+
+
     return numbers.filter(num => num % 2 === 0);
   }, [numbers]);
 
