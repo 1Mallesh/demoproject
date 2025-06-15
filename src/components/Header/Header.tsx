@@ -1,52 +1,81 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Navbar, Container, Nav, NavDropdown, Form, Button } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Image from 'next/image'; // ✅ FIXED: Add this import
+
 export default function Header() {
+  const [query, setQuery] = useState('');
+  const router = useRouter();
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const routeMap: Record<string, string> = {
+      home: '/',
+      about: '/about-us',
+      features: '/features',
+      services: '/services',
+      projects: '/projects',
+      contact: '/contact',
+      experience: '/experience',
+    };
+
+    const lowerQuery = query.toLowerCase().trim();
+
+    if (routeMap[lowerQuery]) {
+      router.push(routeMap[lowerQuery]);
+    } else {
+      alert('No matching page found!');
+    }
+  };
+
   return (
-    <div className='fixed-top mb-5'>
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        {/* Navbar brand */}
-        <Navbar.Brand as={Link} href="/">MN</Navbar.Brand>
-        {/* Toggler */}
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        {/* Collapsible content */}
-        <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: 'auto' }} navbarScroll>
-            {/* Navigation Links */}
-            <Nav.Link as={Link} href="/">Home</Nav.Link>
-            <Nav.Link as={Link} href="/about-us">About</Nav.Link>
-            <Nav.Link as={Link} href="/features">Features</Nav.Link>
-            <Nav.Link as={Link} href="/Services">Services</Nav.Link>
-            <Nav.Link as={Link} href="/Projects">Projects</Nav.Link>
-            <Nav.Link as={Link} href="/contact">Contact Us</Nav.Link>
-             {/* <Nav.Link as={Link} href="/Projects">Projects</Nav.Link> */}
-            <Nav.Link as={Link} href="/Experience">Experience</Nav.Link>
-            {/* <Nav.Link as={Link} href="/Investors">Investors</Nav.Link> */}
-            <Nav.Link as={Link} href="/services">Services</Nav.Link>
-            {/* Dropdown */}  
-            <NavDropdown title="Select" id="navbarScrollingDropdown">
-              <NavDropdown.Item as={Link} href="/action1">Action</NavDropdown.Item>
-              <NavDropdown.Item as={Link} href="/action2">Another action</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item as={Link} href="/action3">Something else here</NavDropdown.Item>
-            </NavDropdown>
-            {/* Disabled link */}
-            <Nav.Link href="#" disabled>
-              Disabled
-            </Nav.Link>
-          </Nav>
-          {/* Search form */}
-          <Form className="d-flex">
-            <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <div className="fixed-top mb-5">
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container fluid>
+          <Navbar.Brand as={Link} href="/">
+            <Image
+              src="/logo2.png" // ✅ Must be in the /public folder
+              alt="Site Logo"
+              width={40}
+              height={40}
+              style={{ borderRadius: '50%' }}
+            />
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+              {/* <Nav.Link as={Link} href="/">Home</Nav.Link> */}
+              <Nav.Link as={Link} href="/about-us">About</Nav.Link>
+              <Nav.Link as={Link} href="/features">Features</Nav.Link>
+              <Nav.Link as={Link} href="/Services ">Services</Nav.Link>
+              <Nav.Link as={Link} href="/Projects">Projects</Nav.Link>
+              <Nav.Link as={Link} href="/Contact">Contact Us</Nav.Link>
+              <Nav.Link as={Link} href="/Experience">Experience</Nav.Link>
+              <NavDropdown title="Social-media" id="navbarScrollingDropdown">
+                <NavDropdown.Item href="https://www.linkedin.com/in/mallesh-n-265488189/" target="_blank">LinkedIn</NavDropdown.Item>
+                <NavDropdown.Item href="https://github.com/1Mallesh" target="_blank">GitHub</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="https://instagram.com/mallesh_nani_460" target="_blank">Instagram</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Form className="d-flex" onSubmit={handleSearch}>
+              <Form.Control
+                type="search"
+                placeholder="Search by page"
+                className="me-2"
+                aria-label="Search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <Button variant="outline-success" type="submit">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </div>
   );
 }

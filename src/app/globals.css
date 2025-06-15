@@ -25,3 +25,230 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 60px;
 }
+.animate-skill {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fadeInZoom 0.6s ease forwards;
+  animation-delay: calc(var(--i, 1) * 0.1s);
+}
+
+/* Apply animation on scroll */
+@keyframes fadeInZoom {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Optional: Add hover effect for interactivity */
+.skill-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 255, 150, 0.3);
+}
+.animated-bg {
+  background: linear-gradient(-45deg, #0a0a0a, #1a1a1a, #2a2a2a, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  padding: 60px 0;
+  color: #fff;
+  min-height: 100vh;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Background Image */
+.contact-bg {
+  background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 50px 0;
+}
+
+/* Card Styling */
+.form-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animated input */
+.animated-input {
+  border: 2px solid #ccc;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.animated-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Floating label animation */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  opacity: 1;
+  transform: scale(0.85) translateY(-1.2rem) translateX(0.15rem);
+}
+
+.form-floating label {
+  transition: 0.3s ease;
+  color: #555;
+}
+.banner-wrapper {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 12px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.subtext {
+  font-size: 1.25rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.accr_sectoon {
+  background: linear-gradient(145deg, #e3f2fd, #f8f9fa);
+  padding: 60px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.faq-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #0d47a1;
+}
+
+.accordion-button {
+  background-color: #ffffff !important;
+  color: #0d47a1;
+  font-weight: 600;
+  border: none;
+  box-shadow: none;
+  padding: 15px 20px;
+  font-size: 1.05rem;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #0d47a1 !important;
+  color: #ffffff;
+  border-radius: 8px 8px 0 0;
+}
+
+.accordion-body {
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 0 0 8px 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Card styling */
+.project-card {
+  background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-card-body {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #00796b;
+  text-transform: capitalize;
+}
+
+.project-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Swiper pagination dots */
+.custom-pagination .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background: #bbb;
+  opacity: 1;
+  margin: 0 6px;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #4CAF50, #00BCD4);
+  width: 18px;
+  height: 18px;
+}
+
+/* Avoid overlap */
+.custom-pagination {
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
+}

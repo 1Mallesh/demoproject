@@ -36,46 +36,58 @@ export default function Home() {
                     </Row>
                 </section>
 
-                <section className="mt-5 second_section text-white">
-    <h2 className="text-center mb-4">My Skills</h2>
-    <Row className="justify-content-center text-center">
-        {[
-            {
-                name: 'HTML5',
-                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-            },
-            {
-                name: 'CSS3',
-                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-            },
-            {
-                name: 'JavaScript',
-                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-            },
-            {
-                name: 'React',
-                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-            },
-            {
-                name: 'Next.js',
-                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-            },
-        ].map((skill, index) => (
-            <Col key={index} xs={6} sm={4} md={2} className="mb-4">
-                <div className="skill-card p-3 rounded shadow-sm bg-dark">
-                    <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        width={60}
-                        height={60}
-                        style={{ objectFit: 'contain',margin: '0 auto' }}
-                    />
-                    <p className="mt-2">{skill.name}</p>
-                </div>
-            </Col>
-        ))}
-    </Row>
-</section>
+                <section className="mt-5 pt-md-5 second_section text-white">
+                    <h2 className="text-center mb-4">My Skills</h2>
+                    <Row className="justify-content-center text-center">
+                        {[
+                            {
+                                name: 'HTML5',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+                            },
+                            {
+                                name: 'CSS3',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+                            },
+                            {
+                                name: 'JavaScript',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+                            },
+                            {
+                                name: 'React',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+                            },
+                            {
+                                name: 'Next.js',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+                            },
+                            {
+                                name: 'Node.js',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+                            },
+                            {
+                                name: 'Express.js',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+                            },
+                            {
+                                name: 'MongoDB',
+                                icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+                            }
+                        ].map((skill, index) => (
+                            <Col key={index} xs={6} sm={4} md={2} className="mb-4">
+                                <div className="skill-card p-3 rounded shadow-sm bg-dark">
+                                    <img
+                                        src={skill.icon}
+                                        alt={skill.name}
+                                        width={60}
+                                        height={60}
+                                        style={{ objectFit: 'contain', margin: '0 auto' }}
+                                    />
+                                    <p className="mt-2">{skill.name}</p>
+                                </div>
+                            </Col>
+                        ))}
+                    </Row>
+                </section>
 
             </Container>
         </div>

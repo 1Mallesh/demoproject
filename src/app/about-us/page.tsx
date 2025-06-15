@@ -6,8 +6,9 @@ export default function about() {
     return(
     <>
     <Banner />
-    <Accordionomponent/>
     <Tab />
+    <Accordionomponent/>
+    
     </> 
     )
 }
