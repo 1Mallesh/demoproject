@@ -58,12 +58,12 @@ export default function Header() {
               <Nav.Link as={Link} href="/Projects">Projects</Nav.Link>
               <Nav.Link as={Link} href="/Contact">Contact Us</Nav.Link>
               <Nav.Link as={Link} href="/Experience">Experience</Nav.Link>
-              <NavDropdown title="Social-media" id="navbarScrollingDropdown">
+              {/* <NavDropdown title="Social-media" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="https://www.linkedin.com/in/mallesh-n-265488189/" target="_blank">LinkedIn</NavDropdown.Item>
                 <NavDropdown.Item href="https://github.com/1Mallesh" target="_blank">GitHub</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="https://instagram.com/mallesh_nani_460" target="_blank">Instagram</NavDropdown.Item>
-              </NavDropdown>
+              </NavDropdown> */}
             </Nav>
             <Form className="d-flex" onSubmit={handleSearch}>
               <Form.Control

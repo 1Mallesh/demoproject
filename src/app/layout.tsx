@@ -5,6 +5,9 @@ import Footer from "@/components/Footer/Footer";
 export const metadata = {
   title: "My App",
   description: "Website using App Router",
+    icons: {
+    icon: '/logo2.png', // ✅ This will pick from public folder
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
