@@ -24,13 +24,13 @@ export default function Home() {
                                 </Button>
                             </Link>
                         </Col>
-                        <Col md={6} className="text-center mt-5 mt-md-0">
+                        <Col md={6} className="max_with mt-5 mt-md-0">
                             <Image
-                                src="/loptop.jpg" // make sure this exists in /public
+                                src="/malli.jpg" // make sure this exists in /public
                                 alt="Profile"
                                 width={350}
                                 height={350}
-                                style={{ borderRadius: '50%' }}
+                                style={{ borderRadius: '10%' }}
                             />
                         </Col>
                     </Row>
