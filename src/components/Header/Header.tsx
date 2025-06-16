@@ -51,7 +51,7 @@ export default function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              {/* <Nav.Link as={Link} href="/">Home</Nav.Link> */}
+              {/* <Nav.Link as={Link} href="/Getintouch">Getintouch</Nav.Link> */}
               <Nav.Link as={Link} href="/about-us">About</Nav.Link>
               <Nav.Link as={Link} href="/features">Features</Nav.Link>
               <Nav.Link as={Link} href="/Services ">Services</Nav.Link>
@@ -66,7 +66,7 @@ export default function Header() {
               </NavDropdown> */}
             </Nav>
             <Form className="d-flex" onSubmit={handleSearch}>
-              <Form.Control
+              <Form.Control 
                 type="search"
                 placeholder="Search by page"
                 className="me-2"

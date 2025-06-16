@@ -23,7 +23,7 @@ export default function Experience() {
       background: 'linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d)',
       minHeight: '100vh'
     }}>
-      <Container>
+      <Container className='mt-5 pt-md-5'>
         <h2 className="text-center mb-5 fw-bold display-5">Professional Experience</h2>
         <Row className="justify-content-center">
           <Col md={10} lg={8}>
