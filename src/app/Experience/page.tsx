@@ -6,17 +6,42 @@ import { FaLaptopCode } from 'react-icons/fa';
 
 export default function Experience() {
   const [show, setShow] = useState(false);
+  const [experienceString, setExperienceString] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => setShow(true), 300);
     return () => clearTimeout(timer);
   }, []);
 
-  const joiningDate = new Date('2023-05-02');
-  const today = new Date();
-  const diffYears = today.getFullYear() - joiningDate.getFullYear();
-  const diffMonths = today.getMonth() - joiningDate.getMonth() + diffYears * 12;
-  const experienceString = `${Math.floor(diffMonths / 12)} Year(s) ${diffMonths % 12} Month(s)`;
+  useEffect(() => {
+    const updateExperience = () => {
+      const joiningDate = new Date('2023-05-02');
+      const today = new Date();
+
+      let years = today.getFullYear() - joiningDate.getFullYear();
+      let months = today.getMonth() - joiningDate.getMonth();
+      let days = today.getDate() - joiningDate.getDate();
+
+      if (days < 0) {
+        months -= 1;
+        const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+
+      if (months < 0) {
+        years -= 1;
+        months += 12;
+      }
+
+      setExperienceString(`${years} Year(s) ${months} Month(s) ${days} Day(s)`);
+    };
+
+    updateExperience();
+
+    // Optional: Update every 24 hours if you want it to stay live
+    const interval = setInterval(updateExperience, 24 * 60 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="experience-section text-light py-5" style={{

@@ -18,11 +18,11 @@ export default function Home() {
                             <p style={{ fontSize: '1.2rem', marginTop: '20px' }}>
                                 I'm a passionate Front-End Developer with 1 year of experience building responsive web apps using React, JavaScript, and Next.js.
                             </p>
-                            <Link href="#contact" passHref>
+                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                                 <Button variant="primary" style={{ marginTop: '30px' }}>
-                                    Contact Me
+                                    View Resume
                                 </Button>
-                            </Link>
+                            </a>
                         </Col>
                         <Col md={6} className="max_with mt-5 mt-md-0">
                             <Image

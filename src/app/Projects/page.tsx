@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Container, Form, Card } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import { Swiper as SwiperType } from 'swiper/types'; // ✅ Import Swiper types
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,6 +36,7 @@ const projectList = [
 
 export default function Projects() {
   const [searchTerm, setSearchTerm] = useState('');
+  const swiperRef = useRef<SwiperType | null>(null); // ✅ Typed Swiper ref
 
   const filteredProjects = projectList.filter((project) =>
     project.toLowerCase().includes(searchTerm.toLowerCase())
@@ -52,37 +54,44 @@ export default function Projects() {
         className="mb-4"
       />
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        pagination={{
-          el: '.custom-pagination',
-          clickable: true,
-          dynamicBullets: true,
-        }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          992: { slidesPerView: 3 },
-        }}
-        modules={[Pagination, Autoplay]}
+      <div
+        onMouseEnter={() => swiperRef.current?.autoplay?.stop?.()} // ✅ Fix call
+        onMouseLeave={() => swiperRef.current?.autoplay?.start?.()} // ✅ Fix call
       >
-        {filteredProjects.map((project, index) => (
-          <SwiperSlide key={index}>
-            <Card className="project-card h-100 text-center border-0 shadow-sm">
-              <div className="project-card-body p-4">
-                <h5 className="project-title mb-3">
-                  {project.replace(/-/g, ' ')}
-                </h5>
-                <p className="project-desc">
-                  Frontend development with <strong>React</strong> & CMS
-                  integration.
-                </p>
-              </div>
-            </Card>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          spaceBetween={20}
+          slidesPerView={1}
+          pagination={{
+            el: '.custom-pagination',
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{
+            768: { slidesPerView: 2 },
+            992: { slidesPerView: 3 },
+          }}
+          modules={[Pagination, Autoplay]}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+        >
+          {filteredProjects.map((project, index) => (
+            <SwiperSlide key={index}>
+              <Card className="project-card h-100 text-center border-0 shadow-sm">
+                <div className="project-card-body p-4">
+                  <h5 className="project-title mb-3">
+                    {project.replace(/-/g, ' ')}
+                  </h5>
+                  <p className="project-desc">
+                    A customized solution designed to meet unique business goals and enhance digital presence.
+                  </p>
+                </div>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
       <div className="custom-pagination d-flex justify-content-center mt-4" />
     </Container>

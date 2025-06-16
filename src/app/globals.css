@@ -255,7 +255,7 @@ body {
 .portfolio-name {
   font-size: 18px;
   font-weight: 600;
-  color: #2c3e50;
+  color: #fff;
   transition: all 0.3s ease;
   cursor: pointer;
   letter-spacing: 0.5px;
@@ -270,7 +270,7 @@ body {
 .navbar-nav .nav-link {
   position: relative;
   padding: 8px 12px;
-  color: #333; /* Default text color */
+  color: #fff; /* Default text color */
   font-weight: 500;
   transition: color 0.3s ease;
 }
@@ -317,3 +317,24 @@ body {
   100% { background-position: 0% 50%; }
 }
 .max_with{max-width: 400px;margin: 0 auto;}
+.fixed-top{background: linear-gradient(135deg, #1e1e2f, #27293d, #1e1e2f);}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color:#fff !important ;
+}
+.skill-card {
+  transition: transform 0.5s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.skill-card img {
+  transition: transform 0.6s ease;
+}
+
+.skill-card:hover img {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.skill-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
+}
+.bg-dark{background-color: #fff !important;color:#000}

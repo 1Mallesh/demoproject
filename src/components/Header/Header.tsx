@@ -34,7 +34,7 @@ export default function Header() {
 
   return (
     <div className="fixed-top mb-5">
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="">
         <Container fluid>
           <Navbar.Brand as={Link} href="/">
             <div className='d-flex algin-item-center'>
@@ -51,7 +51,7 @@ export default function Header() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-              {/* <Nav.Link as={Link} href="/Getintouch">Getintouch</Nav.Link> */}
+              {/* <Nav.Link as={Link} href="/get-in-touch">get-in-touch</Nav.Link> */}
               <Nav.Link as={Link} href="/about-us">About</Nav.Link>
               <Nav.Link as={Link} href="/features">Features</Nav.Link>
               <Nav.Link as={Link} href="/Services ">Services</Nav.Link>
