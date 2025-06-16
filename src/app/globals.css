@@ -252,3 +252,57 @@ body {
   bottom: 0;
   margin-top: 20px;
 }
+.portfolio-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-name:hover {
+  color: #04e1b7; /* Stylish green */
+  text-shadow: 1px 1px 5px rgba(0, 200, 151, 0.3);
+  transform: scale(1.05);
+}
+/* Header Navigation Link Styling */
+.navbar-nav .nav-link {
+  position: relative;
+  padding: 8px 12px;
+  color: #333; /* Default text color */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effect */
+.navbar-nav .nav-link:hover {
+  color: #00b894; /* Hover text color */
+}
+
+/* Stylish bottom border effect */
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  width: 0%;
+  height: 2px;
+  background-color: #00b894; /* Same as hover color */
+  transition: width 0.4s ease;
+}
+
+/* Expand border on hover */
+.navbar-nav .nav-link:hover::after {
+  width: 60%; /* Adjust for your preferred style */
+}
+.navbar-nav .nav-link.active {
+  color: #00b894;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.active::after {
+  width: 60%;
+}
+
+.btn:hover {    background-color:#00b894;color: #fff;}

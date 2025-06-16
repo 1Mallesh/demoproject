@@ -37,13 +37,16 @@ export default function Header() {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container fluid>
           <Navbar.Brand as={Link} href="/">
-            <Image
-              src="/logo2.png" // ✅ Must be in the /public folder
-              alt="Site Logo"
-              width={40}
-              height={40}
-              style={{ borderRadius: '50%' }}
-            />
+            <div className='d-flex algin-item-center'>
+              <Image
+                src="/logo2.png" // ✅ Must be in the /public folder
+                alt="Site Logo"
+                width={40}
+                height={40}
+                style={{ borderRadius: '50%' }}
+              />
+              <p className="ps-2 mb-0 mt-1 portfolio-name">Mallesh.N </p>
+            </div>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
