@@ -338,3 +338,5 @@ body {
   box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
 }
 .bg-dark{background-color: #fff !important;color:#000}
+
+.banner-wrapper .swiper-button-prev,.banner-wrapper .swiper-button-next { display: none !important;}
