@@ -12,7 +12,6 @@ const Banner = () => {
   >([]);
 
   useEffect(() => {
-    // Simulated API fetch
     const fetchSlides = async () => {
       const data = [
         {
@@ -56,31 +55,16 @@ const Banner = () => {
         loop
         effect="fade"
         className="banner-swiper"
-       
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
               className="slide"
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                height: '600px',
-                position: 'relative',
-              }}
+              style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="slide-content" style={{
-                position: 'absolute',
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%,-50%)',
-                
-                color: '#fff',
-                maxWidth: '600px'
-              }}>
-                <h1 style={{ fontSize: '48px', marginBottom: '16px' }}>{slide.title}</h1>
-                <p style={{ fontSize: '20px', fontWeight: '300' }}>{slide.subtitle}</p>
+              <div className="slide-content">
+                <h1>{slide.title}</h1>
+                <p>{slide.subtitle}</p>
               </div>
             </div>
           </SwiperSlide>

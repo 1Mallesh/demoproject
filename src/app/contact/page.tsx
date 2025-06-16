@@ -4,7 +4,7 @@ import { useState, useTransition } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { saveContactToDB } from './actions';
 
-export default function ContactPage() {
+export default function Contact() {
   const [form, setForm] = useState({
     name: '',
     email: '',

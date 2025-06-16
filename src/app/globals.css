@@ -39,6 +39,7 @@ body {
     transform: scale(1);
   }
 }
+.navbar-toggler {background-color: #fff !important;}
 
 /* Optional: Add hover effect for interactivity */
 .skill-card:hover {
@@ -340,3 +341,75 @@ body {
 .bg-dark{background-color: #fff !important;color:#000}
 
 .banner-wrapper .swiper-button-prev,.banner-wrapper .swiper-button-next { display: none !important;}
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+   border: 1px solid #fff;
+   background-color: #fff;
+
+
+  }
+  .banner-wrapper{display: none;}
+}
+/* banner.css */
+
+.banner-wrapper {
+  width: 100%;
+}
+
+.slide {
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  position: relative;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.slide-content h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.slide-content p {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .slide {
+    height: 400px;
+  }
+
+  .slide-content h1 {
+    font-size: 28px;
+  }
+
+  .slide-content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    height: 300px;
+  }
+
+  .slide-content h1 {
+    font-size: 22px;
+  }
+
+  .slide-content p {
+    font-size: 14px;
+  }
+}
