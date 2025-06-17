@@ -19,7 +19,7 @@ export default function Header() {
       features: '/features',
       services: '/services',
       projects: '/projects',
-      contact: '/contact',
+      contact: '/Contact',
       experience: '/experience',
     };
 
