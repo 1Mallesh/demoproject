@@ -1,37 +1,47 @@
-// File: /app/api/subscribe/route.ts
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
+// Use your own Resend API key here
 const resend = new Resend("re_debkAcRC_BMNBsheQCowBwL4s2SgpHA8G");
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const { email } = await request.json();
+    const { email, phone, message } = await req.json();
 
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    if (!email || !phone || !message) {
+      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
+    // Email to the user
     await resend.emails.send({
-      from: "Mallesh <onboarding@resend.dev>", // Don't change unless your domain is verified
-      to: [email],
-      subject: "Thanks for reaching out!",
+      from: "Mallesh <onboarding@resend.dev>",
+      to: email,
+      subject: "Thanks for Your Message!",
       html: `
-        <p>Hi,</p>
-        <p>Thanks for subscribing! Here's my contact information if you'd like to connect with me:</p>
-        <p><strong>My Details:</strong></p>
-        <ul>
-          <li><strong>Name:</strong> Mallesh N</li>
-          <li><strong>Email:</strong> malleshbitm460@gmail.com</li>
-          <li><strong>Phone:</strong> +91 9901946647</li>
-        </ul>
-        <p>Have a great day! 😊</p>
+        <h2>Thank you!</h2>
+        <p>We’ve received your message:</p>
+        <blockquote>${message}</blockquote>
+        <p>We'll reach out to you soon at <strong>${phone}</strong>.</p>
       `,
     });
 
-    return NextResponse.json({ message: "Email sent successfully!" });
+    // Email to the site owner (you)
+    await resend.emails.send({
+      from: "Mallesh <onboarding@resend.dev>",
+      to: "malleshbitm460@gmail.com",
+      subject: "portfolio Contact Submission",
+      html: `
+        <h3>New Contact Submitted</h3>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <blockquote>${message}</blockquote>
+      `,
+    });
+
+    return NextResponse.json({ message: "Emails sent successfully!" }, { status: 200 });
   } catch (error) {
-    console.error("Resend Error:", error);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    console.error("Email error:", error);
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }

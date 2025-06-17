@@ -15,10 +15,12 @@ import {
 } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 
-import "../Footer/footer.css"; // Custom styles
+import "../Footer/footer.css"; // Optional custom CSS
 
 const Footer = () => {
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const currentYear = new Date().getFullYear();
 
@@ -32,7 +34,8 @@ const Footer = () => {
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+
+    if (!email || !phone || !message) return;
 
     try {
       const res = await fetch("/api/subscribe", {
@@ -40,13 +43,15 @@ const Footer = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, phone, message }),
       });
 
       if (res.ok) {
         setSubscribed(true);
         setTimeout(() => setSubscribed(false), 3000);
         setEmail("");
+        setPhone("");
+        setMessage("");
       } else {
         const data = await res.json();
         alert(data.error || "Subscription failed.");
@@ -59,23 +64,6 @@ const Footer = () => {
 
   return (
     <footer className="footer-section position-relative text-white pt-5">
-      <div className="wave-divider">
-        <svg viewBox="0 0 120 28" preserveAspectRatio="none">
-          <defs>
-            <linearGradient id="waveGradient" gradientTransform="rotate(90)">
-              <stop offset="0%" stopColor="#00ffcc" />
-              <stop offset="100%" stopColor="#1e1e2f" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,0 C40,28 80,0 120,28 L120,0 L0,0 Z"
-            fill="url(#waveGradient)"
-          ></path>
-        </svg>
-      </div>
-
-      <div className="footer-bg-animation"></div>
-
       <Container>
         <Row className="gy-4">
           <Col md={4}>
@@ -109,7 +97,6 @@ const Footer = () => {
                   href="https://mallesh-react-js-portfolio.netlify.app/"
                   className="text-white text-decoration-none"
                   target="_blank"
-                  rel="noopener noreferrer"
                 >
                   mallesh-react-js-portfolio.netlify.app
                 </a>
@@ -134,11 +121,16 @@ const Footer = () => {
           </Col>
 
           <Col md={4}>
-            <h5 className="fw-bold">Subscribe for Updates</h5>
-            <Form
-              onSubmit={handleSubscribe}
-              className="d-flex flex-column gap-2"
-            >
+            <h5 className="fw-bold">Subscribe / Contact Me</h5>
+            <Form onSubmit={handleSubscribe} className="d-flex flex-column gap-2">
+              <Form.Control
+                type="tel"
+                placeholder="Your phone number"
+                className="rounded-3"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
               <Form.Control
                 type="email"
                 placeholder="Your email"
@@ -147,62 +139,34 @@ const Footer = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Write something about me / your message"
+                className="rounded-3"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              />
               <Button type="submit" variant="success" className="rounded-3">
-                Subscribe
+                Submit
               </Button>
             </Form>
             {subscribed && (
               <div className="text-success mt-2">
-                ✅ Subscribed Successfully!
+                ✅ Submitted Successfully!
               </div>
             )}
             <div className="d-flex gap-3 mt-4 fs-4 social-icons">
-              <a
-                href="https://instagram.com/mallesh_nani_460"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="https://github.com/1Mallesh"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaGithub />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/mallesh-n-265488189/"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                href="https://threads.net/mallesh_nani_460"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaThreads />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                className="text-white footer-icon"
-              >
-                <FaTwitter />
-              </a>
+              <a href="https://instagram.com/mallesh_nani_460" target="_blank" className="text-white footer-icon"><FaInstagram /></a>
+              <a href="https://github.com/1Mallesh" target="_blank" className="text-white footer-icon"><FaGithub /></a>
+              <a href="https://www.linkedin.com/in/mallesh-n-265488189/" target="_blank" className="text-white footer-icon"><FaLinkedin /></a>
+              <a href="https://facebook.com" target="_blank" className="text-white footer-icon"><FaFacebook /></a>
+              <a href="https://threads.net/mallesh_nani_460" target="_blank" className="text-white footer-icon"><FaThreads /></a>
+              <a href="https://twitter.com" target="_blank" className="text-white footer-icon"><FaTwitter /></a>
             </div>
           </Col>
         </Row>
-
         <hr className="bg-light mt-4" />
         <p className="text-center mb-0">
           &copy; {currentYear} Mallesh N. Built with 💻 in Next.js.
