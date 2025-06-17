@@ -64,6 +64,20 @@ const Footer = () => {
 
   return (
     <footer className="footer-section position-relative text-white pt-5">
+      <div className="wave-divider">
+        <svg viewBox="0 0 120 28" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="waveGradient" gradientTransform="rotate(90)">
+              <stop offset="0%" stopColor="#00ffcc" />
+              <stop offset="100%" stopColor="#1e1e2f" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M0,0 C40,28 80,0 120,28 L120,0 L0,0 Z"
+            fill="url(#waveGradient)"
+          ></path>
+        </svg>
+      </div>
       <Container>
         <Row className="gy-4">
           <Col md={4}>
