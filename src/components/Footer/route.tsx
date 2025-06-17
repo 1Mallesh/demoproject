@@ -18,7 +18,8 @@ export async function POST(request: Request) {
       subject: "Thanks for reaching out!",
       html: `
         <p>Hi,</p>
-<p>Thanks for subscribing! Here's my contact information if you'd like to connect with me:</p>        <p><strong>My Details:</strong></p>
+        <p>Thanks for subscribing! Here's my contact information if you'd like to connect with me:</p>
+        <p><strong>My Details:</strong></p>
         <ul>
           <li><strong>Name:</strong> Mallesh N</li>
           <li><strong>Email:</strong> malleshbitm460@gmail.com</li>
