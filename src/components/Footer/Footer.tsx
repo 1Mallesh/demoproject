@@ -12,6 +12,7 @@ import {
   FaPhone,
   FaEnvelope,
   FaGlobe,
+   FaBriefcase
 } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 
@@ -166,7 +167,7 @@ const Footer = () => {
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder="Write something about me / your message"
+                placeholder="Write your message — e.g., job opportunity, project collaboration, or feedback"
                 className="rounded-3"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -188,6 +189,9 @@ const Footer = () => {
               <a href="https://facebook.com" target="_blank" className="text-white footer-icon"><FaFacebook /></a>
               <a href="https://threads.net/mallesh_nani_460" target="_blank" className="text-white footer-icon"><FaThreads /></a>
               <a href="https://twitter.com" target="_blank" className="text-white footer-icon"><FaTwitter /></a>
+              <a href="https://www.naukri.com/mnjuser/profile?id=&altresid" target="_blank" className="text-white footer-icon"><FaBriefcase /></a>
+
+              
             </div>
           </Col>
         </Row>
