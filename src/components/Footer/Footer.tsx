@@ -111,7 +111,7 @@ const Footer = () => {
               <span className="d-flex align-items-center gap-2">
                 <FaGlobe />
                 <a
-                  href="https://mallesh-react-js-portfolio.netlify.app/"
+                  href="https://malleshportfolio-next-js-mongodb.netlify.app/"
                   className="text-white text-decoration-none"
                   target="_blank"
                 >
