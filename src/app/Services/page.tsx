@@ -12,6 +12,7 @@ import {
   FaPalette,
   FaReact,
 } from 'react-icons/fa';
+import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -68,6 +69,35 @@ export default function Services() {
 
   return (
     <Container className="py-5 mt-5">
+      {/* 🔥 Top Section with Typewriter Effect */}
+      <Row className="mb-5 justify-content-center">
+        <Col md={10} lg={8} className="text-center">
+          <h3 className="fw-bold mb-3">
+            I'm Mallesh and I'm a{' '}
+            <span className="text-success">
+              <Typewriter
+                words={['Frontend Developer', 'React.js Developer', 'UI/UX Enthusiast','HTML/CSS Lover','NEXT.js Developer','Node.js Developer beginner','MongoDB Developer beginner  ']}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={80}
+                deleteSpeed={50}
+                delaySpeed={1500}
+              />
+            </span>
+          </h3>
+          <p className="text-muted">
+            Seeking an entry-level opportunity with an esteemed organization where I can
+            utilize my skills & enhance learning in the field of work. Capable of
+            mastering new technologies.
+          </p>
+          <p className="text-muted mt-3">
+            I'm a great communicator & love to invest the necessary time to understand
+            the customer's problem very well.
+          </p>
+        </Col>
+      </Row>
+
       <h2 className="text-center fw-bold mb-5">My Services</h2>
 
       {/* Section 1: Features */}
