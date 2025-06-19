@@ -19,8 +19,23 @@ export default function Home() {
                                 I'm a passionate Front-End Developer with 1 year of experience building responsive web apps using React, JavaScript, and Next.js.
                             </p>
                             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                                <Button variant="primary" style={{ marginTop: '30px' }}>
-                                    View Resume
+                                <Button
+                                    variant="primary"
+                                    style={{ marginTop: '30px' }}
+                                    onClick={() => {
+                                        // Create a temporary link element
+                                        const link = document.createElement('a');
+                                        link.href = '/resume.pdf';
+                                        link.download = 'mallesh-resume.pdf';
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+
+                                        // Optional: Open in new tab
+                                        window.open('/resume.pdf', '_blank');
+                                    }}
+                                >
+                                    View & Download Resume
                                 </Button>
                             </a>
                         </Col>
