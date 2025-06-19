@@ -1,37 +1,39 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Use your own Resend API key here
+// Replace this with your real API key securely
 const resend = new Resend("re_debkAcRC_BMNBsheQCowBwL4s2SgpHA8G");
 
 export async function POST(req: Request) {
   try {
-    const { email, phone, message } = await req.json();
+    const { name, email, phone, message } = await req.json();
 
-    if (!email || !phone || !message) {
+    // Validate input
+    if (!name || !email || !phone || !message) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    // Email to the user
+    // Send email to user
     await resend.emails.send({
       from: "Mallesh <onboarding@resend.dev>",
       to: email,
       subject: "Thanks for Your Message!",
       html: `
-        <h2>Thank you!</h2>
+        <h2>Thank you, ${name}!</h2>
         <p>We’ve received your message:</p>
         <blockquote>${message}</blockquote>
-        <p>We'll reach out to you soon at <strong>${phone}</strong>.</p>
+        <p>We'll contact you soon at <strong>${phone}</strong>.</p>
       `,
     });
 
-    // Email to the site owner (you)
+    // Send email to Mallesh (site owner)
     await resend.emails.send({
       from: "Mallesh <onboarding@resend.dev>",
       to: "malleshbitm460@gmail.com",
-      subject: "portfolio Contact Submission",
+      subject: "New Portfolio Contact Submission",
       html: `
-        <h3>New Contact Submitted</h3>
+        <h3>New Contact Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
         <p><strong>Message:</strong></p>

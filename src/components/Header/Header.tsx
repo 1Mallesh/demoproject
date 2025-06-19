@@ -41,7 +41,7 @@ export default function Header() {
                 src="/logo2.png"
                 alt="Site Logo"
                 width={40}
-                height={40}
+                height={40} 
                 style={{ borderRadius: '50%' }}
               />
               <p className="ps-2 mb-0 mt-1 portfolio-name">Mallesh.N</p>

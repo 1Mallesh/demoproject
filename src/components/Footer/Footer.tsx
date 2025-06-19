@@ -15,9 +15,10 @@ import {
 } from "react-icons/fa";
 import { FaThreads } from "react-icons/fa6";
 
-import "../Footer/footer.css"; // Optional custom CSS
+import "../Footer/footer.css"; // Custom CSS if needed
 
 const Footer = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
@@ -35,7 +36,7 @@ const Footer = () => {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email || !phone || !message) return;
+    if (!name || !email || !phone || !message) return;
 
     try {
       const res = await fetch("/api/subscribe", {
@@ -43,12 +44,13 @@ const Footer = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, phone, message }),
+        body: JSON.stringify({ name, email, phone, message }),
       });
 
       if (res.ok) {
         setSubscribed(true);
         setTimeout(() => setSubscribed(false), 3000);
+        setName("");
         setEmail("");
         setPhone("");
         setMessage("");
@@ -137,6 +139,14 @@ const Footer = () => {
           <Col md={4}>
             <h5 className="fw-bold">Subscribe / Contact Me</h5>
             <Form onSubmit={handleSubscribe} className="d-flex flex-column gap-2">
+              <Form.Control
+                type="text"
+                placeholder="Your name"
+                className="rounded-3"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
               <Form.Control
                 type="tel"
                 placeholder="Your phone number"

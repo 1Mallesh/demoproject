@@ -414,3 +414,36 @@ body {
   }
 }
 .btn-success {background-color: #06cfab;color: #000;}
+/* footer.css */
+.wave-divider svg path {
+  animation: waveMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes waveMove {
+  0% {
+    d: path("M0,0 C40,28 80,0 120,28 L120,0 L0,0 Z");
+  }
+  100% {
+    d: path("M0,0 C30,28 90,0 120,28 L120,0 L0,0 Z");
+  }
+}
+/* footer.css */
+.footer-section .col-md-4 {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s forwards;
+}
+
+.footer-section .col-md-4:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.footer-section .col-md-4:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

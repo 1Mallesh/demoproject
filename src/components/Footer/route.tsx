@@ -1,37 +1,49 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// ✅ Paste your Resend API key below
-const resend = new Resend("re_debkAcRC_BMNBsheQCowBwL4s2SgpHA8G"); // Your API key
+// Replace this with your real API key securely
+const resend = new Resend("re_debkAcRC_BMNBsheQCowBwL4s2SgpHA8G");
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const { email } = await request.json();
+    const { name, email, phone, message } = await req.json();
 
-    if (!email || !email.includes("@")) {
-      return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    // Validate input
+    if (!name || !email || !phone || !message) {
+      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    const response = await resend.emails.send({
-      from: "Mallesh <onboarding@resend.dev>", // Do not change this unless your domain is verified
-      to: [email],
-      subject: "Thanks for reaching out!",
+    // Send email to user
+    await resend.emails.send({
+      from: "Mallesh <onboarding@resend.dev>",
+      to: email,
+      subject: "Thanks for Your Message!",
       html: `
-        <p>Hi,</p>
-        <p>Thanks for subscribing! Here's my contact information if you'd like to connect with me:</p>
-        <p><strong>My Details:</strong></p>
-        <ul>
-          <li><strong>Name:</strong> Mallesh N</li>
-          <li><strong>Email:</strong> malleshbitm460@gmail.com</li>
-          <li><strong>Phone:</strong> +91 9901946647</li>
-        </ul>
-        <p>Have a great day! 😊</p>
+        <h2>Thank you, ${name}!</h2>
+        <p>We’ve received your message:</p>
+        <blockquote>${message}</blockquote>
+        <p>We'll contact you soon at <strong>${phone}</strong>.</p>
       `,
     });
 
-    return NextResponse.json({ message: "Email sent successfully!" });
+    // Send email to Mallesh (site owner)
+    await resend.emails.send({
+      from: "Mallesh <onboarding@resend.dev>",
+      to: "malleshbitm460@gmail.com",
+      subject: "New Portfolio Contact Submission",
+      html: `
+        <h3>New Contact Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong></p>
+        <blockquote>${message}</blockquote>
+      `,
+    });
+
+    return NextResponse.json({ message: "Emails sent successfully!" }, { status: 200 });
   } catch (error) {
-    console.error("Resend Error:", error);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    console.error("Email error:", error);
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
