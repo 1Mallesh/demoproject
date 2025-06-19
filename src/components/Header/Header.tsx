@@ -19,8 +19,9 @@ export default function Header() {
       features: '/features',
       services: '/services',
       projects: '/projects',
-      contact: '/Contact',
+      contact: '/contact',
       experience: '/experience',
+      map: '/map'
     };
 
     const lowerQuery = query.toLowerCase().trim();
@@ -68,6 +69,7 @@ export default function Header() {
               <Nav.Link as={Link} href="/Projects">Projects</Nav.Link>
               <Nav.Link as={Link} href="/Contact">Contact Us</Nav.Link>
               <Nav.Link as={Link} href="/Experience">Experience</Nav.Link>
+<Nav.Link as={Link} href="/mappage">Mappage</Nav.Link>
             </Nav>
             <Form className="d-flex" onSubmit={handleSearch}>
               <Form.Control 
